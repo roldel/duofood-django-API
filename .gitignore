@@ -1,0 +1,16 @@
+# python related files
+*.pyc
+*.pyo
+*.egg
+*.egg-info
+__pycache__
+
+# sqlite db
+*.db
+*.sqlite3
+
+# secret key isolation
+keys.py
+
+# TODO
+TODO.txt
