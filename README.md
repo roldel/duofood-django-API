@@ -11,6 +11,8 @@ Suggestion of design for the frontend
 
 Check out the deployed version [here](https://duofood.eu.pythonanywhere.com/)
 
+&nbsp;
+&nbsp;
 
 
 ⚠️ DOCUMENT REDACTION IN PROGRESS ⚠️
