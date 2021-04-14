@@ -3,7 +3,11 @@
 ### Find delicious meals you can cook, from your available ingredients  🍕 🍗 🍝 
 
 &nbsp;
+
 &nbsp;
+
+
+
 <img src="https://raw.githubusercontent.com/roldel/duofood-django-API/main/frontend.jpeg" width="40%">
 
 Front end design suggestion
