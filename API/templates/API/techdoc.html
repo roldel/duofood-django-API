@@ -1,0 +1,157 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .content {
+    margin-left:15px;
+}
+    h2 {margin-top: 15px;
+    margin-bottom: 10px;
+    }
+
+</style>
+
+<div class="content">
+
+<h1 style="text-align:center;"> Technical Documentation Duofood API </h1>
+
+<h2>Aim</h2>
+
+<p>This API supports front end applications, providing interfacing with SQlite3/MySQL databases. <br>
+It allows unrestricted calls from 'vercel.app' domain, with permission readOnly.<br>
+<br>
+Expected functiunalities : <br>
+<ul>
+    <li>GET model Ingredient objects all (1)</li>
+    <li>GET model Recipe objects all (2)</li>
+    <li>POST model Ingredient objects filtered startswith("str") (3)</li>
+    <li>POST model Recipe objects filtered Ingredients(ManyToMany)_mustcontain = ["ingredient_list"] (4)</li>
+</ul>
+<hr>
+<h2>Models Specifications :</h2>
+
+<p>Ingredient : Fields : <ul>
+    <li>id</li>
+    <li>name</li>
+    </ul>
+    </p>
+
+<p>Ingredient : Fields : <ul>
+    <li>id</li>
+    <li>name</li>
+    <li>text</li>
+    <li>picture</li>
+    <li>Ingredients (ManyToManyField)</li>
+    </ul>
+    </p>
+
+<hr>
+
+<h2>API Endpoints/ Expected formats</h2>
+
+
+<p>POST requests requirements : <ul><li>HEADERS : must contain : Content-Type: application/json</li>
+                    <li>BODY : All inner Body data should be formatted as JSON</li>
+                    </ul></p>
+<p> Cors settings : CORS_ORIGIN_ALLOW_ALL = False <br>
+&emsp; &emsp; &emsp; &emsp; &emsp; CORS_ORIGIN_WHITELIST = ('vercel.app')
+</p>
+<hr><br>
+
+
+<p>REQUESTS expected formats :
+<ul>
+    <li>
+    <p>(1) GET <a href="https://duofood.eu.pythonanywhere.com/ingredients/?format=json">https://duofood.eu.pythonanywhere.com/ingredients/?format=json</a> <br>
+    &emsp; &emsp; Requests all ingredients model objects, with all fields attribute <br>
+
+
+    <li>
+    <p>(2) GET <a href="https://duofood.eu.pythonanywhere.com/recipe/?format=json">https://duofood.eu.pythonanywhere.com/recipe/?format=json</a><br>
+    &emsp; &emsp; Requests all recipes model objects, with all fields attribute <br>
+    </p>
+    </li>
+
+    <li>
+    <p>(3) POST <a href="https://duofood.eu.pythonanywhere.com/ingredientfilter">https://duofood.eu.pythonanywhere.com/ingredientfilter</a><br>
+    &emsp; &emsp; BODY : key = "startswith", value = "string to filter against"<br>
+    &emsp; &emsp; Body content example: {"startswith":"c"}</p>
+    </li>
+
+    <li>
+    <p>(4) POST <a href="https://duofood.eu.pythonanywhere.com/recipefilter">https://duofood.eu.pythonanywhere.com/ingredientfilter</a><br>
+    &emsp; &emsp; BODY : key = "ingredients", value = ["ingredient1","ingredient2",...,"ingredientN"]<br>
+    &emsp; &emsp; Body content example: {"ingredients":["butter","tomato","bread"]}</p>
+    </li>
+</ul>
+</p>
+<br>
+<hr>
+
+
+<p>RESPONSES expected formats :
+
+<ul>
+
+    <li>
+    <p>(1) GET <a href="https://duofood.eu.pythonanywhere.com/ingredients/?format=json">https://duofood.eu.pythonanywhere.com/ingredients/?format=json</a> <br>
+    &emsp; &emsp; Response format for n items : [{"id":1,"name":"apple"},{"id":2,"name":"bread"}, ..., {"id":n,"name":"flour"}]</p></li>
+
+
+    <li>
+    <p>(2) GET <a href="https://duofood.eu.pythonanywhere.com/recipe/?format=json">https://duofood.eu.pythonanywhere.com/recipe/?format=json</a><br>
+    &emsp; &emsp; Response format for recipes : [
+        {
+            "id": 1,
+            "name": "recipe 1",
+            "text": "Recipe instructions",
+            "picture": "https://urllinktoimagecontent",
+            "ingredients": [
+                "https://duofood.eu.pythonanywhere.com/ingredients/2/",
+                "https://duofood.eu.pythonanywhere.com/ingredients/4/"
+            ]
+        }]</p>
+    </li>
+
+    <li>
+    <p>(3) POST <a href="https://duofood.eu.pythonanywhere.com/ingredientfilter?format=json">https://duofood.eu.pythonanywhere.com/ingredientfilter?format=json</a><br>
+    &emsp; &emsp; Response format for matching ingredients :<br>
+    &emsp; &emsp; {"matching_ingredients":[{"id":10,"name":"chicken ( breast )"},{"id":22,"name":"cumin ( spice )"}]} <br>
+    <br>
+    &emsp; &emsp;If 0 ingredient matching query, expect :<br>
+    &emsp; &emsp;&emsp; &emsp;{"matching_ingredients":"no_match"}
+    </p>
+    </li>
+
+    <li>
+    <p>(4) POST <span style="color:red">To Be Implemented</span></p>
+    </li>
+</ul>
+</p>
+<br>
+<hr>
+
+
+
+<h2>Examples</h2>
+
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+
+
+<hr>
+
+<h2>Project code</h2>
+
+This project was built with django 3.2 and its Django REST framework module. <br>
+For the full code, please visit my Github : <br>
+<br>
+<a href="https://github.com/roldel/duofood-django-API">https://github.com/roldel/duofood-django-API</a>
+<br>
+<br>
+<div style="width:30%; margin: 0 34% 0 34%">
+    <a href="{% url 'api-root' %}">Back to API main page</a>
+</div>  
+<br>
+</div>
