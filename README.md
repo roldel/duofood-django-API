@@ -1,8 +1,6 @@
-## Duofood Django API 👨‍🍳       
+# Duofood Django API 👨‍🍳       
 
-### Find delicious meals you can cook, from your available ingredients  🍕 🍗 🍝 
-
-&nbsp;
+## Find delicious meals you can cook, from your available ingredients  🍕 🍗 🍝 
 
 &nbsp;
 
